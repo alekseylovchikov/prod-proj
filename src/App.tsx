@@ -1,26 +1,29 @@
-import { Route, Routes } from 'react-router-dom';
-import { Counter } from './components/Counter';
-import { AboutPage } from './pages/AboutPage/AboutPage';
-import { MainPage } from './pages/MainPage/MainPage';
-import { Link } from 'react-router-dom';
+import { Suspense } from 'react';
+import { Link, Route, Routes } from 'react-router-dom';
+import { AboutPageAsync } from './pages/AboutPage/AboutPage.async';
+import { MainPageAsync } from './pages/MainPage/MainPage.async';
+
+import './styles/index.scss';
+import { useTheme } from './theme/useTheme';
+import { classNames } from './helpers/classNames/classNames';
 
 export const App = () => {
+  const { theme, toggleTheme } = useTheme();
+
   return (
-    <div className="app">
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-        </ul>
-      </nav>
-      <Routes>
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/" element={<MainPage />} />
-      </Routes>
+    <div className={classNames('app', {}, [theme])}>
+      <div>
+        <button onClick={() => toggleTheme()}>Switch theme</button>
+      </div>
+      <Link to="/">Home</Link>
+      <Link to="/about">About</Link>
+
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/about" element={<AboutPageAsync />} />
+          <Route path="/" element={<MainPageAsync />} />
+        </Routes>
+      </Suspense>
     </div>
   );
 };
