@@ -21,7 +21,7 @@ export function buildWebpackConfig(
     devtool: isDev ? 'inline-source-map' : undefined,
     // ['.tsx', '.ts', '.js']
     // для импорта без разширения
-    resolve: buildResolvers(),
+    resolve: buildResolvers(options),
     output: {
       filename: '[name].[contenthash].js', // будет генерироваться хэш и если файл изменился браузер обновит кэш
       path: paths.build,
