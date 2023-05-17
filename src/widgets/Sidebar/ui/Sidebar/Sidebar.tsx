@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
+import { LangSwitcher } from 'widgets/LangSwitcher/ui/LangSwitcher';
+import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -8,10 +9,18 @@ interface SidebarProps {
 }
 
 export const Sidebar = ({ className }: SidebarProps) => {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState<boolean>(() => {
+    const sidebarCollapsed = localStorage.getItem('sidebarCollapsed');
+
+    return sidebarCollapsed ? JSON.parse(sidebarCollapsed) : false;
+  });
 
   const onToggle = () => {
-    setCollapsed((prevState) => !prevState);
+    setCollapsed((prevState) => {
+      const newState = !prevState;
+      localStorage.setItem('sidebarCollapsed', JSON.stringify(newState));
+      return newState;
+    });
   };
 
   return (
@@ -22,6 +31,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
     >
       <button onClick={onToggle}>toggle</button>
       <div className={cls.switchers}>
+        <LangSwitcher />
         <ThemeSwitcher />
       </div>
     </div>
