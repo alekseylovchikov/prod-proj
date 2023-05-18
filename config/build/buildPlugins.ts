@@ -1,13 +1,14 @@
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExctractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 
 import { BuildOptions } from './types/config';
 
 export function buildPlugins(
   options: BuildOptions
 ): webpack.WebpackPluginInstance[] {
-  return [
+  const plugins: webpack.WebpackPluginInstance[] = [
     new webpack.ProgressPlugin(), // показывает прогресс загрузки
     new HTMLWebpackPlugin({ template: options.paths.html }), // встраивает скрипты в html
     new MiniCssExctractPlugin({
@@ -18,4 +19,13 @@ export function buildPlugins(
       __IS_DEV__: JSON.stringify(options.isDev),
     }),
   ];
+
+  if (options.isDev) {
+    plugins.push(
+      new webpack.HotModuleReplacementPlugin(),
+      new ReactRefreshWebpackPlugin()
+    );
+  }
+
+  return plugins;
 }
