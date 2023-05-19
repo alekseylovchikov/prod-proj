@@ -1,3 +1,5 @@
 {
-  "language": "RUS"
+  "language": "RUS",
+  "pageNotFound": "Page not found",
+  "loading": "Loading..."
 }
