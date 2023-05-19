@@ -6,7 +6,7 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BuildOptions } from './types/config';
 
 export function buildPlugins(
-  options: BuildOptions
+  options: BuildOptions,
 ): webpack.WebpackPluginInstance[] {
   const plugins: webpack.WebpackPluginInstance[] = [
     new webpack.ProgressPlugin(), // показывает прогресс загрузки
@@ -23,7 +23,7 @@ export function buildPlugins(
   if (options.isDev) {
     plugins.push(
       new webpack.HotModuleReplacementPlugin(),
-      new ReactRefreshWebpackPlugin()
+      new ReactRefreshWebpackPlugin(),
     );
   }
 

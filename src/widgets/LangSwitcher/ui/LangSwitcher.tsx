@@ -6,6 +6,7 @@ import cls from './LangSwitcher.module.scss';
 
 interface LangSwitcherProps {
   className?: string;
+
 }
 // TODO move to widgets
 export const LangSwitcher = ({ className }: LangSwitcherProps) => {
