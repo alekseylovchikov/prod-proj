@@ -5,7 +5,6 @@ import {
   Suspense,
 } from 'react';
 import { PageError } from 'widgets/PageError/ui/PageError';
-import { Simulate } from 'react-dom/test-utils';
 
 interface ErrorBoundaryProps {
   children: ReactNode;
