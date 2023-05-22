@@ -1,7 +1,10 @@
 {
   "about us": "about us",
+  "error": "error",
   "language": "language",
   "loading": "loading",
   "main page": "main page",
-  "pageNotFound": "pageNotFound"
+  "pageNotFound": "pageNotFound",
+  "reloadPage": "reloadPage",
+  "throwError": "throwError"
 }

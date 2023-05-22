@@ -1,5 +1,8 @@
 {
   "language": "RUS",
   "pageNotFound": "Page not found",
-  "loading": "Loading..."
+  "loading": "Loading...",
+  "error": "Oh snap! Error!",
+  "reloadPage": "Reload page",
+  "throwError": "Throw error"
 }
