@@ -4,5 +4,6 @@
   "loading": "Loading...",
   "error": "Oh snap! Error!",
   "reloadPage": "Reload page",
-  "throwError": "Throw error"
+  "throwError": "Throw error",
+  "toggle": "Toggle"
 }
