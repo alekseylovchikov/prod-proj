@@ -1,6 +1,18 @@
 .Button {
   cursor: pointer;
   color: var(--primary-color);
+  font-weight: normal;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
+  background: white;
+  transform: scale(1);
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(0.97);
+  }
 }
 
 .clear {
@@ -9,4 +21,11 @@
   border: none;
   background: none;
   outline: none;
+  box-shadow: none;
+}
+
+.outline {
+  border: 1px solid var(--primary-color);
+  color: var(--secondary-color);
+  background: none;
 }
