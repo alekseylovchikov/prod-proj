@@ -11,7 +11,7 @@ import { ThemeButton } from 'shared/ui/Button/Button';
 interface ThemeSwitcherProps {
   className?: string;
 }
-// TODO move to widgets
+
 export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
   const { theme, toggleTheme } = useTheme();
 

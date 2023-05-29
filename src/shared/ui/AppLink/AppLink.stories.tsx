@@ -6,6 +6,9 @@ import { AppLink, AppLinkTheme } from './AppLink';
 export default {
   title: 'ui/AppLink',
   component: AppLink,
+  args: {
+    to: '/',
+  },
 } as ComponentMeta<typeof AppLink>;
 
 const Template: ComponentStory<typeof AppLink> = (args) => <AppLink {...args} />;

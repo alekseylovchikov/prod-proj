@@ -5,7 +5,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { Button, ThemeButton } from './Button';
 
 export default {
-  title: 'shared/Button',
+  title: 'ui/Button',
   component: Button,
   argTypes: {
     backgroundColor: { control: 'color' },
