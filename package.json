@@ -14,7 +14,10 @@
     "unit": "jest --config ./config/jest/jest.config.ts",
     "unit:watch": "jest --config ./config/jest/jest.config.ts --watch",
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
-    "build-storybook": "build-storybook -c ./config/storybook"
+    "build-storybook": "build-storybook -c ./config/storybook",
+    "loki": "npx loki test",
+    "visual:report": "cd .loki && reg-cli ./current/ ./reference/ ./reg-diff/ -R ./report.html && cp -r difference/ reg-diff",
+    "visual:report:open": "open .loki/report.html"
   },
   "keywords": [],
   "author": "",
