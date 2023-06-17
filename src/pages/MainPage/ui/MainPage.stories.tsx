@@ -8,7 +8,9 @@ export default {
   component: MainPage,
 } as ComponentMeta<typeof MainPage>;
 
-const Template: ComponentStory<typeof MainPage> = (args) => <MainPage {...args} />;
+const Template: ComponentStory<typeof MainPage> = (args) => (
+  <MainPage {...args} />
+);
 
 export const Default = Template.bind({});
 Default.args = {};

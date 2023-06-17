@@ -1,11 +1,17 @@
 import { useTranslation } from 'react-i18next';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { BugButton } from 'app/providers/ErrorBoundary';
+import cls from './MainPage.module.scss';
 
-const MainPage = () => {
+interface MainPageProps {
+  className?: string;
+}
+
+const MainPage = ({ className }: MainPageProps) => {
   const { t } = useTranslation('main');
 
   return (
-    <div>
+    <div className={classNames(cls.MainPage, {}, [className])}>
       <h1>{t('main page')}</h1>
       <BugButton />
     </div>
