@@ -23,7 +23,11 @@ export function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstan
   ];
 
   if (options.isDev) {
-    plugins.push(new webpack.HotModuleReplacementPlugin(), new ReactRefreshWebpackPlugin(), new BundleAnalyzerPlugin({ openAnalyzer: false }));
+    plugins.push(
+      new webpack.HotModuleReplacementPlugin(),
+      new ReactRefreshWebpackPlugin(),
+      new BundleAnalyzerPlugin({ openAnalyzer: false }),
+    );
   }
 
   return plugins;
