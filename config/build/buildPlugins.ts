@@ -6,7 +6,9 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 import { BuildOptions } from './types/config';
 
-export function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstance[] {
+export function buildPlugins(
+  options: BuildOptions
+): webpack.WebpackPluginInstance[] {
   const plugins: webpack.WebpackPluginInstance[] = [
     new webpack.ProgressPlugin(), // показывает прогресс загрузки
     new HTMLWebpackPlugin({
@@ -20,11 +22,14 @@ export function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstan
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(options.isDev),
     }),
-    new BundleAnalyzerPlugin({ openAnalyzer: false }),
   ];
 
   if (options.isDev) {
-    plugins.push(new webpack.HotModuleReplacementPlugin(), new ReactRefreshWebpackPlugin());
+    plugins.push(
+      new webpack.HotModuleReplacementPlugin(),
+      new ReactRefreshWebpackPlugin(),
+      new BundleAnalyzerPlugin({ openAnalyzer: false })
+    );
   }
 
   return plugins;
