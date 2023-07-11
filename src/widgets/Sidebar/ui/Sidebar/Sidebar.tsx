@@ -1,9 +1,9 @@
-import { useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { LangSwitcher } from 'widgets/LangSwitcher/ui/LangSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { Button } from 'shared/ui/Button';
-import { useTranslation } from 'react-i18next';
+import { ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
+import { useLocalStorage } from 'shared/hooks';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -11,25 +11,24 @@ interface SidebarProps {
 }
 
 export const Sidebar = ({ className }: SidebarProps) => {
-  const { t } = useTranslation();
-  const [collapsed, setCollapsed] = useState<boolean>(() => {
-    const sidebarCollapsed = localStorage.getItem('sidebarCollapsed');
-
-    return sidebarCollapsed ? JSON.parse(sidebarCollapsed) : false;
-  });
+  const { setValueToStorage, getValueFromStorage } = useLocalStorage({ key: 'sidebarCollapsed', defaultValue: 'false' });
+  const collapsed: boolean = JSON.parse(getValueFromStorage);
 
   const onToggle = () => {
-    setCollapsed((prevState) => {
-      const newState = !prevState;
-      localStorage.setItem('sidebarCollapsed', JSON.stringify(newState));
-      return newState;
-    });
+    setValueToStorage(JSON.stringify(!collapsed));
   };
 
   return (
     <div data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
-      <Button data-testid="sidebar-toggle" onClick={onToggle}>
-        {t('toggle')}
+      <Button
+        data-testid="sidebar-toggle"
+        size={ButtonSize.L}
+        onClick={onToggle}
+        className={cls.collapseBtn}
+        theme={ButtonTheme.BACKGROUND_INVERTED}
+        square
+      >
+        {collapsed ? '>' : '<'}
       </Button>
       <div className={cls.switchers}>
         <LangSwitcher />

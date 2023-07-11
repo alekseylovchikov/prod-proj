@@ -1,5 +1,5 @@
 import { screen } from '@testing-library/react';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { renderWithTranslation } from 'shared/lib/test/renderWithTranslation/renderWithTranslation';
 
 describe('Button', () => {
@@ -10,7 +10,7 @@ describe('Button', () => {
   });
 
   it('should have class clear', () => {
-    renderWithTranslation(<Button theme={ThemeButton.CLEAR}>Test</Button>);
+    renderWithTranslation(<Button theme={ButtonTheme.CLEAR}>Test</Button>);
 
     expect(screen.getByText('Test')).toHaveClass('clear');
   });

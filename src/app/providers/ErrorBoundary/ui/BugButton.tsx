@@ -1,6 +1,6 @@
 import { Button } from 'shared/ui/Button';
 import { useEffect, useState } from 'react';
-import { ThemeButton } from 'shared/ui/Button/Button';
+import { ButtonTheme } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 
 // ErrorBoundary test
@@ -19,7 +19,7 @@ export const BugButton = () => {
   }, [error]);
 
   return (
-    <Button onClick={onThrow} theme={ThemeButton.CLEAR}>
+    <Button onClick={onThrow} theme={ButtonTheme.CLEAR}>
       {t('throwError')}
     </Button>
   );
