@@ -4,6 +4,11 @@ import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { Button } from 'shared/ui/Button';
 import { ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { useLocalStorage } from 'shared/hooks';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { useTranslation } from 'react-i18next';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import HomeIcon from 'shared/assets/icons/home.svg';
+import AboutIcon from 'shared/assets/icons/about.svg';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -11,6 +16,7 @@ interface SidebarProps {
 }
 
 export const Sidebar = ({ className }: SidebarProps) => {
+  const { t } = useTranslation();
   const { setValueToStorage, getValueFromStorage } = useLocalStorage({ key: 'sidebarCollapsed', defaultValue: 'false' });
   const collapsed: boolean = JSON.parse(getValueFromStorage);
 
@@ -30,8 +36,22 @@ export const Sidebar = ({ className }: SidebarProps) => {
       >
         {collapsed ? '>' : '<'}
       </Button>
+      <div className={cls.items}>
+        <div className={cls.item}>
+          <HomeIcon className={cls.icon} />
+          <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.main} className={cls.link}>
+            {t('home')}
+          </AppLink>
+        </div>
+        <div className={cls.item}>
+          <AboutIcon className={cls.icon} />
+          <AppLink theme={AppLinkTheme.PRIMARY} to={RoutePath.about} className={cls.link}>
+            {t('about')}
+          </AppLink>
+        </div>
+      </div>
       <div className={cls.switchers}>
-        <LangSwitcher />
+        <LangSwitcher short={collapsed} />
         <ThemeSwitcher />
       </div>
     </div>

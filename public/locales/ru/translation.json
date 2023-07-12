@@ -1,5 +1,6 @@
 {
-  "language": "ENG",
+  "language": "ENGLISH",
+  "shortLanguage": "ENG",
   "pageNotFound": "Страница не найдена",
   "loading": "Загрузка...",
   "error": "О нет! Ошибка!",
