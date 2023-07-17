@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { renderWithTranslation } from 'shared/lib/test/renderWithTranslation/renderWithTranslation';
+import { renderWithTranslation } from 'shared/lib/tests/renderWithTranslation/renderWithTranslation';
 
 describe('Button', () => {
   it('should have text Test', () => {
