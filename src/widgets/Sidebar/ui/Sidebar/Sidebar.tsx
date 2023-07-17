@@ -37,18 +37,14 @@ export const Sidebar = ({ className }: SidebarProps) => {
         {collapsed ? '>' : '<'}
       </Button>
       <div className={cls.items}>
-        <div className={cls.item}>
+        <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.main} className={cls.item}>
           <HomeIcon className={cls.icon} />
-          <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.main} className={cls.link}>
-            {t('home')}
-          </AppLink>
-        </div>
-        <div className={cls.item}>
+          <span className={cls.link}>{t('home')}</span>
+        </AppLink>
+        <AppLink theme={AppLinkTheme.PRIMARY} to={RoutePath.about} className={cls.item}>
           <AboutIcon className={cls.icon} />
-          <AppLink theme={AppLinkTheme.PRIMARY} to={RoutePath.about} className={cls.link}>
-            {t('about')}
-          </AppLink>
-        </div>
+          <span className={cls.link}>{t('about')}</span>
+        </AppLink>
       </div>
       <div className={cls.switchers}>
         <LangSwitcher short={collapsed} />
