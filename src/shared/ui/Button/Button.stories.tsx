@@ -29,19 +29,20 @@ OutlineLight.args = {
   children: 'Outline',
 };
 
-export const OutlineLightSizeL = Template.bind({});
-OutlineLightSizeL.args = {
-  theme: ButtonTheme.OUTLINE,
-  children: 'Outline size L',
-  size: ButtonSize.L,
-};
+// TODO Check these stories
+// export const OutlineLightSizeL = Template.bind({});
+// OutlineLightSizeL.args = {
+//   theme: ButtonTheme.OUTLINE,
+//   children: 'Outline size L',
+//   size: ButtonSize.L,
+// };
 
-export const OutlineLightSizeXL = Template.bind({});
-OutlineLightSizeXL.args = {
-  theme: ButtonTheme.OUTLINE,
-  children: 'Outline size XL',
-  size: ButtonSize.XL,
-};
+// export const OutlineLightSizeXL = Template.bind({});
+// OutlineLightSizeXL.args = {
+//   theme: ButtonTheme.OUTLINE,
+//   children: 'Outline size XL',
+//   size: ButtonSize.XL,
+// };
 
 export const BackgroundTheme = Template.bind({});
 BackgroundTheme.args = {
@@ -49,32 +50,32 @@ BackgroundTheme.args = {
   children: 'Background',
 };
 
-export const BackgroundInverted = Template.bind({});
-BackgroundInverted.args = {
-  theme: ButtonTheme.BACKGROUND_INVERTED,
-  children: 'Background inverted',
-};
+// export const BackgroundInverted = Template.bind({});
+// BackgroundInverted.args = {
+//   theme: ButtonTheme.BACKGROUND_INVERTED,
+//   children: 'Background inverted',
+// };
 
-export const SquareSizeM = Template.bind({});
-SquareSizeM.args = {
-  theme: ButtonTheme.BACKGROUND,
-  children: 'M',
-  size: ButtonSize.M,
-  square: true,
-};
+// export const SquareSizeM = Template.bind({});
+// SquareSizeM.args = {
+//   theme: ButtonTheme.BACKGROUND,
+//   children: 'M',
+//   size: ButtonSize.M,
+//   square: true,
+// };
 
-export const SquareSizeL = Template.bind({});
-SquareSizeL.args = {
-  theme: ButtonTheme.BACKGROUND,
-  children: 'L',
-  size: ButtonSize.L,
-  square: true,
-};
+// export const SquareSizeL = Template.bind({});
+// SquareSizeL.args = {
+//   theme: ButtonTheme.BACKGROUND,
+//   children: 'L',
+//   size: ButtonSize.L,
+//   square: true,
+// };
 
-export const SquareSizeXL = Template.bind({});
-SquareSizeXL.args = {
-  theme: ButtonTheme.BACKGROUND,
-  children: 'XL',
-  size: ButtonSize.XL,
-  square: true,
-};
+// export const SquareSizeXL = Template.bind({});
+// SquareSizeXL.args = {
+//   theme: ButtonTheme.BACKGROUND,
+//   children: 'XL',
+//   size: ButtonSize.XL,
+//   square: true,
+// };
