@@ -44,11 +44,11 @@ OutlineLight.args = {
 //   size: ButtonSize.XL,
 // };
 
-export const BackgroundTheme = Template.bind({});
-BackgroundTheme.args = {
-  theme: ButtonTheme.BACKGROUND,
-  children: 'Background',
-};
+// export const BackgroundTheme = Template.bind({});
+// BackgroundTheme.args = {
+//   theme: ButtonTheme.BACKGROUND,
+//   children: 'Background',
+// };
 
 // export const BackgroundInverted = Template.bind({});
 // BackgroundInverted.args = {
