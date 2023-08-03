@@ -1,7 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
 import { Button, ButtonSize, ButtonTheme } from './Button';
 
 export default {
@@ -19,34 +17,14 @@ DefaultLight.args = {
   children: 'Default',
 };
 
-export const DefaultDark = Template.bind({});
-DefaultDark.decorators = [ThemeDecorator(Theme.DARK)];
-DefaultDark.args = {
-  children: 'Default',
-};
-
 export const ClearLight = Template.bind({});
 ClearLight.args = {
   theme: ButtonTheme.CLEAR,
   children: 'Clear',
 };
 
-export const ClearDark = Template.bind({});
-ClearDark.decorators = [ThemeDecorator(Theme.DARK)];
-ClearDark.args = {
-  theme: ButtonTheme.CLEAR,
-  children: 'Clear',
-};
-
 export const OutlineLight = Template.bind({});
 OutlineLight.args = {
-  theme: ButtonTheme.OUTLINE,
-  children: 'Outline',
-};
-
-export const OutlineDark = Template.bind({});
-OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
-OutlineDark.args = {
   theme: ButtonTheme.OUTLINE,
   children: 'Outline',
 };
