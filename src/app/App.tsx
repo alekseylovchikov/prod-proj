@@ -8,6 +8,7 @@ import { Sidebar } from 'widgets/Sidebar';
 import { Suspense } from 'react';
 
 import './styles/index.scss';
+import { Modal } from 'shared/ui/Modal/Modal';
 
 export const App = () => {
   const { theme } = useTheme();
@@ -16,6 +17,7 @@ export const App = () => {
     <div className={classNames('app', {}, [theme])}>
       <Suspense fallback="">
         <Navbar />
+        <Modal />
         <div className="content-page">
           <Sidebar />
           <AppRouter />
