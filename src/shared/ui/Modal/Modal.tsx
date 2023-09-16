@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { MouseEvent, ReactNode, useEffect, useRef, useState } from 'react';
+import { MouseEvent, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
@@ -12,12 +12,7 @@ interface ModalProps {
 const ANIMATION_DELAY = 200;
 
 export const Modal = (props: ModalProps) => {
-  const {
-    className,
-    children,
-    isOpen,
-    onClose,
-  } = props;
+  const { className, children, isOpen, onClose } = props;
 
   const [isClosing, setIsClosing] = useState(false);
   const timeRef = useRef<ReturnType<typeof setTimeout> | null>();
@@ -32,11 +27,14 @@ export const Modal = (props: ModalProps) => {
     }
   };
 
-  const onKeyDown = (e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      closeHandler();
-    }
-  };
+  const onKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        closeHandler();
+      }
+    },
+    [closeHandler],
+  );
 
   useEffect(() => {
     if (isOpen) {
@@ -50,8 +48,7 @@ export const Modal = (props: ModalProps) => {
         clearTimeout(timeRef.current);
       }
     };
-  }, [isOpen]);
-
+  }, [isOpen, onKeyDown]);
 
   const onContentClick = (e: MouseEvent) => {
     e.stopPropagation();
@@ -65,7 +62,9 @@ export const Modal = (props: ModalProps) => {
   return (
     <div className={classNames(cls.Modal, mods, [className])}>
       <div className={cls.overlay} onClick={closeHandler}>
-        <div className={cls.content} onClick={onContentClick}>{children}</div>
+        <div className={cls.content} onClick={onContentClick}>
+          {children}
+        </div>
       </div>
     </div>
   );
