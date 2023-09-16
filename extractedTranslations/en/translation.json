@@ -1,13 +1,20 @@
 {
+  "Login": "Login",
   "about": "",
   "about us": "about us",
+  "enter": "enter",
   "error": "error",
   "home": "",
   "language": "language",
+  "links": "links",
   "loading": "loading",
+  "login": "login",
+  "lorem ipsum dolor sit": "lorem ipsum dolor sit",
   "main page": "main page",
   "pageNotFound": "pageNotFound",
   "reloadPage": "reloadPage",
+  "t(": "t(",
+  "text": "text",
   "throwError": "throwError",
   "toggle": ""
 }

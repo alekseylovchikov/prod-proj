@@ -23,6 +23,12 @@ ClearLight.args = {
   children: 'Clear',
 };
 
+export const ClearOutlineLight = Template.bind({});
+ClearOutlineLight.args = {
+  theme: ButtonTheme.CLEAR_INVERTED,
+  children: 'Clear Inverted',
+};
+
 export const OutlineLight = Template.bind({});
 OutlineLight.args = {
   theme: ButtonTheme.OUTLINE,
