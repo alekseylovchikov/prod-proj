@@ -69,7 +69,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
     "live-server": "^1.2.2",
-    "loki": "^0.32.0",
+    "loki": "^0.33.0",
     "mini-css-extract-plugin": "^2.5.3",
     "reg-cli": "^0.17.7",
     "regenerator-runtime": "^0.13.9",
@@ -105,10 +105,6 @@
         "height": 768,
         "deviceScaleFactor": 1,
         "mobile": false
-      },
-      "chrome.iphone7": {
-        "target": "chrome.docker",
-        "preset": "iPhone 7"
       }
     }
   }
