@@ -8,9 +8,13 @@ describe('counterSlice', () => {
     expect(counterReducer(state, counterActions.decrement())).toEqual({ value: 9 });
   });
 
-  test('should return inccremented state', () => {
+  test('should return incremented state', () => {
     const state: CounterSchema = { value: 10 };
 
     expect(counterReducer(state, counterActions.increment())).toEqual({ value: 11 });
+  });
+
+  test('should return incremented state with empty state', () => {
+    expect(counterReducer(undefined, counterActions.increment())).toEqual({ value: 1 });
   });
 });
