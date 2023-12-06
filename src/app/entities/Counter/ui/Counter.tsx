@@ -14,7 +14,7 @@ export const Counter = () => {
   };
 
   return (
-    <div>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
       <h1 data-testid="value-counter">{counterValue}</h1>
       <Button data-testid="incerment" onClick={increment}>
         +
