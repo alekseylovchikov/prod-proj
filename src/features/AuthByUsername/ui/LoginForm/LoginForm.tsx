@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-
+import { useTranslation } from 'react-i18next';
 import cls from './LoginForm.module.scss';
 
 interface LoginFormProps {
@@ -7,7 +7,7 @@ interface LoginFormProps {
 }
 
 export const LoginForm = ({ className }: LoginFormProps) => {
-  console.log('LoginForm');
+  const { t } = useTranslation('auth');
 
-  return <div className={classNames(cls.LoginForm, {}, [className])}>LoginForm</div>;
+  return <div className={classNames(cls.LoginForm, {}, [className])}>{t('loginForm')}</div>;
 };
