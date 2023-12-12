@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { BugButton } from 'app/providers/ErrorBoundary';
-import { Counter } from 'entities';
+import { Counter } from 'entities/Counter';
 import cls from './MainPage.module.scss';
 
 interface MainPageProps {
