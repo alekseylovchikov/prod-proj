@@ -1,6 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { LoginForm } from 'features/AuthByUsername';
-import cls from './LoginModal.module.scss';
 
 interface LoginModalProps {
   className?: string;
