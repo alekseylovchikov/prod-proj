@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from 'shared/ui/Button';
-import { counterActions, getCounterValue } from 'app/entities/Counter';
+import { counterActions, getCounterValue } from 'entities/Counter';
 
 export const Counter = () => {
   const dispatch = useDispatch();
