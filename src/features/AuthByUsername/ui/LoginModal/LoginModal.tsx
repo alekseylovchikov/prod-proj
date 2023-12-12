@@ -1,15 +1,10 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { LoginForm } from 'features/AuthByUsername';
 
-interface LoginModalProps {
-  className?: string;
-}
-
-export const LoginModal = ({ className }: LoginModalProps) => {
+export const LoginModal = () => {
   const name = 'LoginModal';
 
   return (
-    <div className={classNames(cls.LoginModal, {}, [className])}>
+    <div>
       {name}
       <LoginForm />
     </div>
