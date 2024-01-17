@@ -25,6 +25,13 @@ server.use((req, res, next) => {
 server.use(jsonServer.defaults());
 server.use(router);
 
+server.get('/users', (_req, res) => {
+  const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
+  const { users } = db;
+
+  return res.json({ users });
+});
+
 server.post('/login', (req, res) => {
   const { username, password } = req.body;
   const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
