@@ -6,7 +6,7 @@ const server = jsonServer.create();
 
 const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
 
-server.use(async (req, res, next) => {
+server.use(async (_req, _res, next) => {
   await new Promise((res) => {
     setTimeout(res, 800);
   });
@@ -39,9 +39,7 @@ server.post('/login', (req, res) => {
 
   const userFromDb = users.find((user) => user.username === username && user.password === password);
 
-  if (userFromDb) {
-    return res.json(userFromDb);
-  }
+  if (userFromDb) return res.json(userFromDb);
 
   return res.status(403).json({ message: 'Access denied' });
 });
