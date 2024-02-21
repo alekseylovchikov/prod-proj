@@ -44,6 +44,4 @@ server.post('/login', (req, res) => {
 
 server.use(router);
 
-server.listen(8000, () => {
-  console.log('JSON Server is running');
-});
+server.listen(8000, () => {});
