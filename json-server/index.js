@@ -1,10 +1,20 @@
 const jsonServer = require('json-server');
-const path = require('path');
+const bodyParser = require('body-parser');
 const fs = require('fs');
+const path = require('path');
 
 const server = jsonServer.create();
 
 const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
+const userdb = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'users.json'), 'UTF-8'));
+
+server.use(bodyParser.urlencoded({ extended: true }));
+server.use(bodyParser.json());
+server.use(jsonServer.defaults());
+
+function findUser({ username, password }) {
+  return userdb.users.find((user) => user.username === username && user.password === password);
+}
 
 server.use(async (req, res, next) => {
   await new Promise((res) => {
@@ -22,22 +32,16 @@ server.use((req, res, next) => {
   next();
 });
 
-server.use(jsonServer.defaults());
-server.use(router);
-
 server.post('/login', (req, res) => {
   const { username, password } = req.body;
-  const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
-  const { users } = db;
+  const user = findUser({ username, password });
 
-  const userFromDb = users.find((user) => user.username === username && user.password === password);
-
-  if (userFromDb) {
-    return res.json(userFromDb);
-  }
+  if (user) return res.json(user);
 
   return res.status(403).json({ message: 'Access denied' });
 });
+
+server.use(router);
 
 server.listen(8000, () => {
   console.log('JSON Server is running');
