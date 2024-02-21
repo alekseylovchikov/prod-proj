@@ -24,6 +24,7 @@ server.use(async (req, res, next) => {
   next();
 });
 
+// eslint-disable-next-line
 server.use((req, res, next) => {
   if (!req.headers.authorization) {
     return res.status(403).json({ message: 'Access denied' });
