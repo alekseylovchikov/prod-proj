@@ -16,15 +16,3 @@ export const Primary = Template.bind({});
 Primary.args = {
   value: 'text',
 };
-
-export const Secondary = Template.bind({});
-Secondary.args = {
-  value: 'text',
-  theme: 'secondary',
-};
-
-export const Red = Template.bind({});
-Red.args = {
-  value: 'text',
-  theme: 'red',
-};
