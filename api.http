@@ -1,0 +1,13 @@
+
+
+POST http://localhost:8000/login
+Authorization: token
+content-type: application/json
+
+{
+    "username": "admin",
+    "password": 123
+}
+
+GET http://localhost:8000/users
+
